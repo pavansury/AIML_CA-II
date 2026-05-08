@@ -4,3 +4,4 @@ venv/
 *.pkl
 .env
 .DS_Store
+dataset/ratings.csv
