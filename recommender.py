@@ -8,7 +8,7 @@ movies = pd.read_csv("dataset/movies.csv")
 # TF-IDF Vectorization
 tfidf = TfidfVectorizer(stop_words='english')
 
-tfidf_matrix = tfidf.fit_transform(movies['genre'])
+tfidf_matrix = tfidf.fit_transform(movies['genres'])
 
 # Similarity matrix
 similarity = cosine_similarity(tfidf_matrix, tfidf_matrix)
