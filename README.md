@@ -114,6 +114,22 @@ git push -u origin main
 6. Deploy settings will auto-detect from `render.yaml`
 7. Click "Deploy"
 
+### Important: Python Version
+This project pins Python to `3.11.9` (in `.python-version` and `render.yaml`) to avoid pandas build failures seen on Python 3.14.
+
+## CI/CD (GitHub Actions)
+
+Workflow file: `.github/workflows/ci-cd.yml`
+
+- CI runs on every push/PR to `main`
+- Installs dependencies and runs unit tests in `tests/`
+- CD triggers Render deployment automatically after CI passes on `main`
+
+To enable auto-deploy from GitHub Actions:
+1. In Render, open your web service and create a **Deploy Hook**.
+2. In GitHub repository settings, add a secret named `RENDER_DEPLOY_HOOK_URL`.
+3. Paste the Render deploy hook URL as the secret value.
+
 ## Future Improvements
 - [ ] Add poster images
 - [ ] Add user login/authentication
